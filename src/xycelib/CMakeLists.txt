@@ -17,7 +17,13 @@ message(STATUS "Found Xyce at ${XYCE_LIBRARY}")
 
 add_library(xycelib SHARED xycelib.cpp)
 
-target_link_libraries(xycelib JlCxx::cxxwrap_julia ${XYCE_LIBRARY})
+target_link_libraries(xycelib
+  JlCxx::cxxwrap_julia
+  ${XYCE_LIBRARY}
+  ADMS
+  NeuronModels
+  teuchoscore 
+)
 
 install(TARGETS
   xycelib

@@ -1,3 +1,3 @@
 using Xyce
 
-Xyce.simulate("/home/pepijn/code/juliacomp/SPICEFrontend.jl/test/netlists/VRC.sp")
+Xyce.simulate("test/V1D1.sp")

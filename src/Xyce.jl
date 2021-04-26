@@ -11,9 +11,12 @@ function simulate(netlist; type=TRAN, name="handler", vectors=["V(*)", "I(*)"])
     cxxvec = StdVector(StdString.(vectors))
     oh = OutputHandler(name, type, cxxvec)
     x = GenCouplingSimulator()
-    addOutputInterface(x, oh) # type error
-    argv = Base.cconvert(CxxPtr{CxxPtr{CxxChar}}, ["xyce", netlist])
-    initialize(x, 2, argv) # tries to read "A" rather than netlist
+    arg = ["xyce", netlist]
+    argch = Base.cconvert.(CxxPtr{CxxChar}, arg)
+    argv = Base.cconvert(CxxPtr{CxxPtr{CxxChar}}, argch)
+    initialize(x, 2, argv)
+    addOutputInterface(x, CxxPtr(oh))
+    return x, oh
 end
 
 
