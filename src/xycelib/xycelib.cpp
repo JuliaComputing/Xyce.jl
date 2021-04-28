@@ -30,6 +30,7 @@ public:
     void outputFieldNames(std::vector<std::string> &outputNames)
     {
         fieldnames = outputNames;
+        real_data.resize(outputNames.size());
     }
 
     std::vector<std::string> getFieldnames() {

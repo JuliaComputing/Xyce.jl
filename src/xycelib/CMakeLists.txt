@@ -20,8 +20,6 @@ add_library(xycelib SHARED xycelib.cpp)
 target_link_libraries(xycelib
   JlCxx::cxxwrap_julia
   ${XYCE_LIBRARY}
-  ADMS
-  NeuronModels
   teuchoscore 
 )
 

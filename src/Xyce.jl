@@ -16,8 +16,13 @@ function simulate(netlist; type=TRAN, name="handler", vectors=["V(*)", "I(*)"])
     argv = Base.cconvert(CxxPtr{CxxPtr{CxxChar}}, argch)
     initialize(x, 2, argv)
     addOutputInterface(x, CxxPtr(oh))
-    return x, oh
+    runSimulation(x)
+    names = String.(getFieldnames(oh))
+    res = Dict()
+    for (i, n) in enumerate(names)
+        res[n] = Array(getRealData(oh, i-1))
+    end
+    return res
 end
-
 
 end # module

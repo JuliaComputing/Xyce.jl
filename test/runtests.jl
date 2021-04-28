@@ -1,3 +1,7 @@
 using Xyce
+using Plots
 
-Xyce.simulate("test/V1D1.sp")
+res = Xyce.simulate("test/VRC.sp")
+
+plot(res["TIME"], [res["V(NET2)"], res["V(NET1)"]])
+savefig("xyce.png")
