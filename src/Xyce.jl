@@ -7,7 +7,7 @@ function __init__()
     @initcxx
 end
 
-function simulate(netlist; type=TRAN, name="handler", vectors=["V(*)", "I(*)"])
+function simulate(netlist; type=TRAN, name="handler", vectors=["TIME", "V(*)", "I(*)"])
     cxxvec = StdVector(StdString.(vectors))
     oh = OutputHandler(name, type, cxxvec)
     x = GenCouplingSimulator()
