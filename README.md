@@ -1,6 +1,6 @@
 # Xyce.jl
 
-Xyce.jl is a high-level wrapper over [Xyce](https://xyce.sandia.gov/), a parallel cicruit-simulator from Sandia National Laboratories.
+Xyce.jl is a high-level Julia wrapper for [Xyce](https://xyce.sandia.gov/), a parallel cicruit-simulator from Sandia National Laboratories.
 
 # Usage
 
