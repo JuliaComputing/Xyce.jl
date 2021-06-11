@@ -5,6 +5,8 @@ using XyceWrapper_jll
 
 function __init__()
     @initcxx
+    # this avoids aborting when Xyce encounters an error
+    set_report_handler()
 end
 
 function simulate(netlist; type=TRAN, name="handler", vectors=["TIME", "V(*)", "I(*)"])
