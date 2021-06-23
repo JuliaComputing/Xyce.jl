@@ -16,8 +16,9 @@ function simulate(netlist; type=TRAN, name="handler", vectors=["TIME", "V(*)", "
     arg = ["xyce", netlist]
     argch = Base.cconvert.(CxxPtr{CxxChar}, arg)
     argv = Base.cconvert(CxxPtr{CxxPtr{CxxChar}}, argch)
-    initialize(x, 2, argv)
+    initializeEarly(x, 2, argv)
     addOutputInterface(x, CxxPtr(oh))
+    initializeLate(x)
     runSimulation(x)
     names = String.(getFieldnames(oh))
     res = Dict()
