@@ -4,7 +4,6 @@ Xyce.jl is a high-level Julia wrapper for [Xyce](https://xyce.sandia.gov/), a pa
 
 # Usage
 
-```
-julia --color=yes build_tarballs.jl --verbose --deploy=local x86_64-linux-gnu
-julia --project test/runtests.jl
+```julia
+Xyce.simulate("test/VRC.sp")
 ```
