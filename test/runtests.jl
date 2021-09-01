@@ -4,17 +4,20 @@ using Test
 @testset "VRC.sp tran" begin
 	res = Xyce.simulate("VRC.sp")
 	@test length(res) == 3
-	@test length(res["TIME"]) > 100
-	@test res["TIME"][1] == 0.0
-	@test res["TIME"][end] == 0.002
-	@test maximum(res["V(INP)"]) ≈ 1.0 atol=0.01
-	@test minimum(res["V(INP)"]) ≈ -1.0 atol=0.01
-	@test res["V(INP)"][1] == 0
-	@test res["V(INP)"][end] ≈ 0 atol=1e-12
-	@test res["V(OUT)"][1] == 0
-	@test maximum(res["V(OUT)"])/maximum(res["V(INP)"]) ≈ 0.862 atol=0.001
-	i1 = argmax(res["V(INP)"])
-	@test res["V(OUT)"][i1]/res["V(INP)"][i1] ≈ 0.710 atol=0.001
+	time = res["TIME"]
+	inp = res["V(INP)"]
+	out = res["V(OUT)"]
+	@test length(time) > 100
+	@test time[1] == 0.0
+	@test time[end] == 0.002
+	@test maximum(inp) ≈ 1.0 atol=0.01
+	@test minimum(inp) ≈ -1.0 atol=0.01
+	@test inp[1] == 0
+	@test inp[end] ≈ 0 atol=1e-12
+	@test out[1] == 0
+	@test maximum(out)/maximum(inp) ≈ 0.862 atol=0.001
+	i1 = argmax(inp)
+	@test out[i1]/inp[i1] ≈ 0.710 atol=0.001
 end
 # This crashes Xyce and Julia (FIXME):
 #@testset "V1D1.sp" begin
