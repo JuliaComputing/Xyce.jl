@@ -5,14 +5,14 @@ using XyceWrapper_jll
 
 function __init__()
     @initcxx
-    # this avoids aborting when Xyce encounters an error
-    set_report_handler()
 end
 
 function simulate(netlist; type=TRAN, name="handler", vectors=["TIME", "V(*)", "I(*)"])
     cxxvec = StdVector(StdString.(vectors))
     oh = OutputHandler(name, type, cxxvec)
     x = GenCouplingSimulator()
+    # this avoids aborting when Xyce encounters an error
+    set_report_handler()
     arg = ["xyce", netlist]
     argch = Base.cconvert.(CxxPtr{CxxChar}, arg)
     argv = Base.cconvert(CxxPtr{CxxPtr{CxxChar}}, argch)
