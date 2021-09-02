@@ -5,5 +5,10 @@ Xyce.jl is a high-level Julia wrapper for [Xyce](https://xyce.sandia.gov/), a pa
 # Usage
 
 ```julia
-Xyce.simulate("test/VRC.sp")
+using Xyce
+using Plots
+spice_file = joinpath(dirname(pathof(Xyce)), "../test/VRC.sp")
+res = Xyce.simulate(spice_file)
+plot(res["TIME"], [res["V(INP)"], res["V(OUT)"]],
+     label = ["V(inp)" "V(out)"])
 ```
