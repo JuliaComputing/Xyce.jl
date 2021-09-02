@@ -43,4 +43,7 @@ end
 	idx = argmin(i1)
 	@test v1[idx] > 19.9
 end
+@testset "missing file error" begin
+	@test_throws ErrorException Xyce.simulate("missing")
+end
 end
