@@ -1,7 +1,7 @@
 name = "Xyce"
 uuid = "1b67bd2a-23ea-4736-a23a-3ec91cbf2075"
 authors = ["Pepijn de Vos <pepijndevos@gmail.com>"]
-version = "0.1.0"
+version = "0.1.1"
 
 [deps]
 CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
