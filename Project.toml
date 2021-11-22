@@ -1,7 +1,7 @@
 name = "Xyce"
 uuid = "1b67bd2a-23ea-4736-a23a-3ec91cbf2075"
 authors = ["Pepijn de Vos <pepijndevos@gmail.com>"]
-version = "0.1.2"
+version = "0.2.0"
 
 [deps]
 CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
@@ -9,7 +9,7 @@ XyceWrapper_jll = "11346573-4739-5234-a9de-0f0819ae11a7"
 
 [compat]
 CxxWrap = "0.11.2"
-XyceWrapper_jll = "0.1.1"
+XyceWrapper_jll = "0.2.0"
 julia = "1.3"
 
 [extras]
