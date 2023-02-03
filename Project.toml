@@ -8,8 +8,8 @@ CxxWrap = "1f15a43c-97ca-5a2a-ae31-89f07a497df4"
 XyceWrapper_jll = "11346573-4739-5234-a9de-0f0819ae11a7"
 
 [compat]
-CxxWrap = "0.11.2"
-XyceWrapper_jll = "0.2.0, 0.3"
+CxxWrap = "0.13"
+XyceWrapper_jll = "0.4"
 julia = "1.6"
 
 [extras]
